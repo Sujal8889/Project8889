@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Run function when DOM Content has loaded
+document.addEventListener("DOMContentLoaded", init);
+
+// Function to run when DOM Content has loaded
+function init(event) {
+// Get registration form and keep in global scope
+regForm = document.forms["registration"];
+
+// Listen for form submit
+regForm["register"].onclick = validateForm;
+}
+
+// Function to validate form elements
+function validateForm(event) {
+// Array to contain all error messages
+var errorMessages = Array();
+
+// If username is empty
+if (!regForm["username"].value) {
+errorMessages.push("* Please enter Username");
+}
+
+// If password1 is empty
+if (!regForm["password1"].value) {
+errorMessages.push("* Please enter Password1");
+}
+
+// If password2 is empty
+if (!regForm["password2"].value) {
+errorMessages.push("* Please enter Password2");
+}
+
+// If both passwords have values
+if (regForm["password1"].value && regForm["password2"].value) {
+// If passwords don't match
+if (regForm["password1"].value != regForm["password2"].value) {
+errorMessages.push("* Passwords do not match");
+}
+}
+
+// Find out if a gender has been selected
+var isChecked = false;
+for (var i = 0; i < regForm["gender"].length; i++) {
+if (regForm["gender"][i].checked) {
+isChecked = true; // Found a checked radio button!
+break; // No need to continue the search
+}
+}
+
+// If a gender selection was not found
+if (!isChecked) {
+errorMessages.push("* Please choose your gender");
+}
+
+// If selection has no value
+if (!regForm["continent"].value) {
+errorMessages.push("* Please select your location");
+}
+
+// If description is empty
+if (!regForm["description"].value) {
+errorMessages.push("* Please enter a description about you");
+}
+
+// Show error messages
+displayErrors(errorMessages);
+
+// If there are errors
+if (errorMessages.length) {
+// Stop the form from submitting
+return false;
+}
+}
+
+function displayErrors(errors) {
+var errorBox = document.getElementById("errorMessages");
+
+// If there aren't any errors
+if (!errors.length) {
+errorBox.innerHTML = "";
+return false;
+}
+
+// Get reference to error box
+var errorBox = document.getElementById("errorMessages");
+
+// Prepare a container to hold the completed error message string
+var messageString = "<ul>";
+
+// Loop through each error to display
+for (var i = 0; i < errors.length; i++) {
+messageString += "<li>" + errors[i] + "</li>";
+}
+
+messageString += "</ul>";
+
+errorBox.innerHTML = messageString;
+}
+    </script>
+</head>
+<body>
+    <form action="#" id="registration">
+        <h1>Register an Account</h1>
+    
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" />
+        </p>
+    
+        <p>
+            <label for="password1">Password:</label>
+            <input type="password" id="password1" name="password1" />
+        </p>
+    
+        <p>
+            <label for="password2">Confirm Password:</label>
+            <input type="password" id="password2" name="password2" />
+        </p>
+    
+        <p>
+            <input type="radio" id="genderM" name="gender" value="male" />
+            <label for="genderM">Male</label>
+        </p>
+    
+        <p>
+            <input type="radio" id="genderF" name="gender" value="female" />
+            <label for="genderF">Female</label>
+        </p>
+    
+        <p>
+            <label for="continent">Your Continent</label>
+            <select name="continent" id="continent">
+                <option value="">Choose Your Continent</option>
+                <option value="africa">Africa</option>
+                <option value="northamerica">North America</option>
+                <option value="southamerica">South America</option>
+                <option value="antarctica">Antarctica</option>
+                <option value="asia">Asia</option>
+                <option value="australia">Australia</option>
+                <option value="europe">Europe</option>
+            </select>
+        </p>
+    
+        <p>
+            <label for="desc">Describe yourself</label>
+            <textarea name="description" id="desc" cols="30" rows="10">
+
+                
+</body>
+</html>
