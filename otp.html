@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="otp()" id="otpBtn"> Get OTP</button>
+    <br>
+    <br>
+    <input type="number" id="numOtp" minlength="4">
+    <br>
+    <br>
+    <button onclick="checker()">Submit</button>
+</body>
+<script>
+    var x = Math.random() * 10000;
+    var otp1 = Math.round(x);
+    function otp() {
+        alert( "Your OTP is : "+ otp1); 
+    }
+    function checker() {
+       var y = document.getElementById("numOtp").value;
+        if (otp1 == y) {
+            alert("You can login successfully");
+        }
+        else{
+            alert("Wrong OTP");
+        }
+    }
+</script>
+</html>
