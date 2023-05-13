@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="Arrays"></h1>
+    <button onclick="pop()">pop</button>
+    <button onclick="push()">push</button>
+    <button onclick="slice()">slice</button>
+    <button onclick="reverse()">reverse</button>
+    <button onclick="shift()">shift</button>
+</body>
+<script>
+    var fruits = ["mango", "banana", "apple", ];
+    var vagetables = ["potato","tomato","brinjal"];
+    // document.write(Array.isArray(fruits) )
+    // document.write(fruits.valueOf() )
+    // document.write(fruits.join(" | ") )
+    var total = fruits.concat(vagetables)
+    // document.write(total)   
+    // document.write(total.join(" | ") )
+    // document.write(total.indexOf("tomato"))
+    document.getElementById("Arrays").innerHTML = total.join(" | ");
+    function pop() {
+        total.pop();
+        document.getElementById("Arrays").innerHTML = total.join(" | ");
+    }
+    function push() {
+        var x = prompt("Enter fruit or vagetable name:","Orange");
+        total.push(x);
+        document.getElementById("Arrays").innerHTML = total.join(" | ");
+    }
+    function slice() {
+        var y = prompt('Enter a number 1 to 6:',"1")
+        var z = total.slice(y)
+        document.getElementById("Arrays").innerHTML = z.join(" | ");
+    }
+    function reverse() {
+        total.reverse();
+        document.getElementById("Arrays").innerHTML = total.join(" | ");
+    }
+    function shift() {
+        total.shift();
+        document.getElementById("Arrays").innerHTML = total.join(" | ");   
+    }
+</script>
+</html>
