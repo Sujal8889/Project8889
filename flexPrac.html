@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout-1</title>
+    <style>
+        .main{
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+        .main>*{
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            flex: 1 100%;
+            border-radius: 10px;
+        }
+        header.header{
+            background-color: skyblue;
+        }
+        .content{
+            min-height: 300px;
+            font-size: 30px;
+            background-color: aquamarine;
+            text-align: left;
+        }
+        .aside1{
+            background-color: gold;
+            flex: 2;
+        }
+        .aside2{
+            background-color: hotpink;
+            flex: 2;
+        }
+        .footer{
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <h1>Header</h1>
+        </header>
+        <article class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo qui at neque odio unde quas error cumque numquam quisquam, velit illum, asperiores voluptates labore voluptate accusantium rerum nesciunt? Culpa, facere!</p>
+        </article>
+        <aside class="aside aside1"><h1>aside1</h1></aside>
+        <aside class="aside aside2"><h1>aside2</h1></aside>
+        <footer class="footer">
+            <h1>footer</h1>
+        </footer>
+    </div>
+</body>
+</html>
